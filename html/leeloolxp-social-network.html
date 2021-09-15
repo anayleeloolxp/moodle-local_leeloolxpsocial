@@ -1,0 +1,61 @@
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Social Network</title>
+        
+</head>
+<body>
+        <h1>Social Network</h1>
+        <style>
+            div#page-content {
+            	padding-top: 0rem!important;
+            	padding-bottom: 0rem!important;
+            }
+            footer#page-footer {
+            	display: none;
+            }
+            section#region-main {
+            	padding: 0;
+            }
+            h1 {
+            	display: none;
+            }
+            iframe.leeloosocial {
+            	height: calc(100vh - 80px);
+                width: 100%;
+                border: 0;
+            }
+        </style>
+        <div id="leeloosocialdiv"></div>
+        <script>
+                function getCookie(cname) {
+                        var name = cname + "=";
+                        var decodedCookie = decodeURIComponent(document.cookie);
+                        var ca = decodedCookie.split(';');
+                        for(var i = 0; i <ca.length; i++) {
+                                var c = ca[i];
+                                while (c.charAt(0) == ' ') {
+                                        c = c.substring(1);
+                                }
+                                if (c.indexOf(name) == 0) {
+                                        return c.substring(name.length, c.length);
+                                }
+                        }
+                        return "";
+                }
+                var jsession_id = getCookie('jsession_id');
+                var moodleurl = getCookie('moodleurl');
+                if(jsession_id !=''){
+                        document.getElementById("leeloosocialdiv").innerHTML = '<iframe src="https://leeloolxp.com/es-frame?session_id='+jsession_id+'" class="leeloosocial"></iframe>';
+                }else{
+                    if(moodleurl !=''){
+                        window.location.href = moodleurl + "/login/index.php";
+                    } else {
+                        window.location.href = "/login/index.php";
+                    }    
+                }
+                
+        </script>
+        
+</body>
+</html>
