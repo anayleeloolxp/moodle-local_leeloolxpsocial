@@ -35,6 +35,6 @@ if ($hassiteconfig) {
         get_string('addsocialpage', 'local_leeloolxpsocial'),
         get_string('addsocialpagehelp', 'local_leeloolxpsocial'), 1);
 
-    $setting->set_updatedcallback(local_leeloolxpsocial_updateset());
+    //$setting->set_updatedcallback(local_leeloolxpsocial_updateset());
     $settings->add($setting);
 }
