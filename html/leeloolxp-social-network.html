@@ -2,7 +2,7 @@
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Social Network</title>
-        
+
 </head>
 <body>
         <h1>Social Network</h1>
@@ -44,18 +44,19 @@
                         return "";
                 }
                 var jsession_id = getCookie('jsession_id');
+                var license_key = getCookie('license_key');
                 var moodleurl = getCookie('moodleurl');
                 if(jsession_id !=''){
-                        document.getElementById("leeloosocialdiv").innerHTML = '<iframe src="https://leeloolxp.com/es-frame?session_id='+jsession_id+'" class="leeloosocial"></iframe>';
+                        document.getElementById("leeloosocialdiv").innerHTML = '<iframe src="https://leeloolxp.com/es-frame?session_id='+jsession_id+'&leeloolxplicense='+license_key+'" class="leeloosocial"></iframe>';
                 }else{
                     if(moodleurl !=''){
                         window.location.href = moodleurl + "/login/index.php";
                     } else {
                         window.location.href = "/login/index.php";
-                    }    
+                    }
                 }
-                
+
         </script>
-        
+
 </body>
 </html>
