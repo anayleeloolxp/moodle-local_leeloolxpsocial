@@ -100,3 +100,40 @@ function local_leeloolxpsocial_updateset() {
 
     return;
 }
+
+/**
+ * Function to add social frame in arena page.
+ */
+function local_leeloolxpsocial_before_footer() {
+    global $PAGE;
+    $PAGE->requires->js_init_code("window.onmessage = function(e) {
+            if (e.data == 'loadarenasocial') {
+                function getCookie(cname) {
+                    var name = cname + '=';
+                    var decodedCookie = decodeURIComponent(document.cookie);
+                    var ca = decodedCookie.split(';');
+                    for(var i = 0; i <ca.length; i++) {
+                            var c = ca[i];
+                            while (c.charAt(0) == ' ') {
+                                    c = c.substring(1);
+                            }
+                            if (c.indexOf(name) == 0) {
+                                    return c.substring(name.length, c.length);
+                            }
+                    }
+                    return '';
+                }
+                var jsession_id = getCookie('jsession_id');
+                var license_key = getCookie('license_key');
+                var moodleurl = getCookie('moodleurl');
+
+                if( document.getElementsByClassName('leeloosocial').length != 0){
+                    
+                    var framesrc = 'https://leeloolxp.com/es-frame?session_id='+jsession_id+'&leeloolxplicense='+license_key;
+
+                    document.getElementsByClassName('leeloosocial')[0].contentWindow.postMessage('loadarenasocial-'+framesrc, '*');
+                }
+                
+            }
+        };");
+}
