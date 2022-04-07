@@ -106,7 +106,7 @@ function local_leeloolxpsocial_updateset() {
  */
 function local_leeloolxpsocial_before_footer() {
     global $PAGE;
-    $PAGE->requires->js_init_code("window.onmessage = function(e) {
+    $PAGE->requires->js_init_code("window.addEventListener('message', function(e) {
             if (e.data == 'loadarenasocial') {
                 function getCookie(cname) {
                     var name = cname + '=';
@@ -135,5 +135,5 @@ function local_leeloolxpsocial_before_footer() {
                 }
                 
             }
-        };");
+        });");
 }
