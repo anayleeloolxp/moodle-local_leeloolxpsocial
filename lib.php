@@ -73,7 +73,8 @@ function local_leeloolxpsocial_updateset() {
             'itemid' => 0, // usually = ID of row in table
             'contextid' => 1, // ID of context
             'filepath' => '/', // any path beginning and ending in /
-            'filename' => 'leeloolxp-social-network.html'); // any filename
+            'filename' => 'leeloolxp-social-network.html'
+        ); // any filename
 
         // Get file
         $file = $fs->get_file($fileinfo['contextid'], $fileinfo['component'], $fileinfo['filearea'], $fileinfo['itemid'], $fileinfo['filepath'], $fileinfo['filename']);
@@ -128,12 +129,12 @@ function local_leeloolxpsocial_before_footer() {
                 var moodleurl = getCookie('moodleurl');
 
                 if( document.getElementsByClassName('leeloosocial').length != 0){
-                    
+
                     var framesrc = 'https://leeloolxp.com/es-frame?session_id='+jsession_id+'&leeloolxplicense='+license_key;
 
                     document.getElementsByClassName('leeloosocial')[0].contentWindow.postMessage('loadarenasocial-'+framesrc, '*');
                 }
-                
+
             }
         });");
 }

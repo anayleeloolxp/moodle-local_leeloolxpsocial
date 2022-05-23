@@ -31,9 +31,12 @@ if ($hassiteconfig) {
 
     $ADMIN->add('localplugins', $settings);
 
-    $setting = new admin_setting_configcheckbox('local_leeloolxpsocial/addsocialpage',
+    $setting = new admin_setting_configcheckbox(
+        'local_leeloolxpsocial/addsocialpage',
         get_string('addsocialpage', 'local_leeloolxpsocial'),
-        get_string('addsocialpagehelp', 'local_leeloolxpsocial'), 1);
+        get_string('addsocialpagehelp', 'local_leeloolxpsocial'),
+        1
+    );
 
     $setting->set_updatedcallback(local_leeloolxpsocial_updateset());
     $settings->add($setting);
