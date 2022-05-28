@@ -23,7 +23,6 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * Fetch and Update Configration From L
@@ -57,7 +56,8 @@ function local_leeloolxpsocial_updateset() {
             $file = $fs->create_file_from_pathname($filerecord, $filename);
         }
 
-        $addmenusocial = PHP_EOL . 'Leeloo LXP Social|/local/staticpage/view.php?page=leeloolxp-social-network||||||fa-users|leeloossourlj|';
+        $addmenusocial = PHP_EOL .
+            'Leeloo LXP Social|/local/staticpage/view.php?page=leeloolxp-social-network||||||fa-users|leeloossourlj|';
 
         $existinglinks = get_config('local_boostnavigation')->insertcustomnodesusers;
 
@@ -69,17 +69,24 @@ function local_leeloolxpsocial_updateset() {
 
         $fileinfo = array(
             'component' => 'local_staticpage',
-            'filearea' => 'documents', // usually = table name
-            'itemid' => 0, // usually = ID of row in table
-            'contextid' => 1, // ID of context
-            'filepath' => '/', // any path beginning and ending in /
+            'filearea' => 'documents',
+            'itemid' => 0,
+            'contextid' => 1,
+            'filepath' => '/',
             'filename' => 'leeloolxp-social-network.html'
-        ); // any filename
+        );
 
-        // Get file
-        $file = $fs->get_file($fileinfo['contextid'], $fileinfo['component'], $fileinfo['filearea'], $fileinfo['itemid'], $fileinfo['filepath'], $fileinfo['filename']);
+        // Get file.
+        $file = $fs->get_file(
+            $fileinfo['contextid'],
+            $fileinfo['component'],
+            $fileinfo['filearea'],
+            $fileinfo['itemid'],
+            $fileinfo['filepath'],
+            $fileinfo['filename']
+        );
 
-        // Delete it if it exists
+        // Delete it if it exists.
         if ($file) {
             $file->delete();
         }

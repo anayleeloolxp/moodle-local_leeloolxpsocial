@@ -25,8 +25,6 @@
 
 namespace local_leeloolxpsocial\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Privacy Subsystem for local_leeloolxpsocial implementing null_provider.
  *
