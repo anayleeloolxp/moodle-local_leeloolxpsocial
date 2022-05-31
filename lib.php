@@ -31,7 +31,7 @@ function local_leeloolxpsocial_updateset() {
 
     global $CFG;
 
-    $addsocialpage = get_config('local_leeloolxpsocial')->addsocialpage;
+    @$addsocialpage = get_config('local_leeloolxpsocial')->addsocialpage;
 
     if ($addsocialpage == 1) {
         $fs = get_file_storage();
